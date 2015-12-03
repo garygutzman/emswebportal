@@ -1,0 +1,378 @@
+
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <!-- Title message -->
+    <h1>{{welcome}}</h1>
+    <p class="lead">{{title}}</p>
+    <!-- Saint paul residents only note -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center">
+          <em>valid for saint paul residents only</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<!-- Container for progress bar -->
+<div class="container">
+
+  <div class="row bs-wizard" style="border-bottom:0;">
+
+    <div class="col-xs-4 bs-wizard-step active"><!-- active -->
+      <div class="text-center bs-wizard-stepnum">Step 1</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center"> Tell us about yourself</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step disabled"><!-- disabled -->
+      <div class="text-center bs-wizard-stepnum">Step 2</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Tell us about your family</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step disabled"><!-- disabled -->
+      <div class="text-center bs-wizard-stepnum">Step 3</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Essay</div> </br></br>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Container start -->
+<div class="container">
+
+
+  <!-- Required fields note -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <em>* indicates required fields</br></br></br></em>
+      </div>
+    </div>
+  </div>
+  <!-- Name input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputfname">First Name *</label> </br>
+            <input type="text" class="form-control" placeholder="eg., John" id="inputfname"
+             ng-model="fname.watch" ng-style="styling(fname)"
+             ng-keyup="verification(fname, nameRegex)" ng-bind="fname.watch">
+        </div>
+      </div>
+    </div>
+
+      <div class="col-md-2">
+        <div class="text-center">
+          <label for="inputmname">Middle Name</label> </br>
+        </div>
+        <input type="text" class="form-control" placeholder="" id="inputmname"
+               ng-model="mname.watch" ng-style="styling(mname)"
+               ng-keyup="verification(mname,nameRegex)" ng-bind="mname.watch">
+      </div>
+
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputlname">Last Name *</label> </br>
+          <input type="text" class="form-control" placeholder="eg., Doe" id="inputlname"
+          ng-model="lname.watch" ng-style="styling(lname)"
+          ng-keyup="verification(lname,nameRegex)" ng-bind="lname.watch">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Address input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-6">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputaddress">Street Address *</label> </br>
+          <input type="text" class="form-control" placeholder="eg., 4432 Elm Street" id="inputaddress"
+          ng-model="address.watch" ng-style="styling(address)"
+          ng-keyup="verification(address, addressRegex)" ng-bind="address.watch">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- City, State, Zip inputs -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label>City</label> </br>
+           <div class="well well-sm">
+             <div class="text-left well-text">
+              St. Paul
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="text-center">
+
+        <label>State</label> </br>
+        <div class="well well-sm">
+          <div class="text-left well-text">
+            Minnesota
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputzip">Zip Code *</label> </br>
+          <input type="text" class="form-control" placeholder="5 digit format" id="inputzip"
+          ng-model="zip.watch" ng-style="styling(zip)" ng-keyup="verification(zip, zipRegex)"
+          maxlength="5" ng-bind="zip.watch">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Phone number -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputhome">Primary Phone *</label> </br>
+          <input type="text" class="form-control" placeholder="eg., (612) 555-5555" id="inputhome"
+          ng-model="home.watch" ng-style="styling(home)" ng-keyup="verification(home, phoneRegex)"
+          maxlength="14" ng-bind="home.watch" ui-us-phone-number>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputalt">Alternate Phone</label> </br>
+          <input type="text" class="form-control" placeholder="" id="inputalt"
+          ng-model="alt.watch" ng-style="styling(alt)" ng-keyup="verification(alt, phoneRegex)"
+          maxlength="14" ng-bind="alt.watch" ui-us-phone-number>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- E-mail input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-6">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputemail">E-mail Address *</label> </br>
+          <input type="text" class="form-control" placeholder="eg., johndoe@mail.com" id="inputemail"
+          ng-model="email.watch" ng-style="styling(email)"
+          ng-keyup="verification(email, emailRegex)" ng-bind="email.watch">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Gender and Ethnicity input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Gender *</label> </br>
+          Male&nbsp;&nbsp;<input type="radio" name="Gender" value="Male" ng-model="gender.watch" ng-click="dropdownVerify(gender)" ng-touch="dropdownVerify(gender)">
+          Female&nbsp;&nbsp;<input type="radio" name="Gender" value="Female" ng-model="gender.watch" ng-click="dropdownVerify(gender)" ng-touch="dropdownVerify(gender)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputethnicity">Ethnicity *</label> </br>
+          <select name="ethnicity" class="form-control" id="inputethnicity" ng-model="ethnicity.watch"
+                  ng-style="styling(ethnicity)" ng-click="dropdownVerify(ethnicity)" ng-touch="dropdownVerify(ethnicity)">
+            <option ng-repeat="ethnicity in ethnicities">{{ethnicity}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Birthday and Age input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputdob">Date of Birth *</label> </br>
+          <input type="text" class="form-control" placeholder="MM/DD/YYYY" id="inputdob"
+          ng-model="dob.watch" ng-style="styling(dob)" ng-keyup="verification(dob, dobRegex)"
+          maxlength="15" mask='99/99/9999' ng-blur="calculateAge(dob.watch)">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2"> </div>
+
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Calculated Age</label> </br>
+          <div class="well well-sm">
+            <div class="text-left well-text">
+            {{age.watch}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Worked for city/currently employed input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+      <form>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Have you worked for the city before? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="workedbefore" value="Yes" ng-model="workedbefore.watch" ng-click="dropdownVerify(workedbefore)" ng-touch="dropdownVerify(workedbefore)">
+          No&nbsp;&nbsp;<input type="radio" name="workedbefore" value="No" ng-model="workedbefore.watch" ng-click= "dropdownVerify(workedbefore)" ng-touch="dropdownVerify(workedbefore)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Are you currently employed? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="currentemp" value="Yes" ng-model="currentemp.watch" ng-click="dropdownVerify(currentemp)" ng-touch="dropdownVerify(currentemp)">
+          No&nbsp;&nbsp;<input type="radio" name="currentemp" value="No" ng-model="currentemp.watch" ng-click= "dropdownVerify(currentemp)" ng-touch="dropdownVerify(currentemp)">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- School input #1 -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Are you currently in school? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="currentinschool" value="Yes" ng-model="currentinschool.watch" ng-click="dropdownVerify(currentinschool)" ng-touch="dropdownVerify(currentinschool)">
+          No&nbsp;&nbsp;<input type="radio" name="currentinschool" value="No" ng-model="currentinschool.watch" ng-click="dropdownVerify(currentinschool)" ng-touch="dropdownVerify(currentinschool)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label>Are you attending school in Fall 2015? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="fall2015" value="Yes" ng-model="fall2015.watch" ng-click="dropdownVerify(fall2015)" ng-touch="dropdownVerify(fall2015)">
+          No&nbsp;&nbsp;<input type="radio" name="fall2015" value="No" ng-model="fall2015.watch" ng-click="dropdownVerify(fall2015)" ng-touch="dropdownVerify(fall2015)">
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- School input #2 -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-4">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputschool">Name of your school *</label> </br>
+          <input type="text" class="form-control" placeholder="If none, please enter N/A" id="inputschool"
+            ng-model="school.watch" ng-style="styling(school)" ng-keyup="verification(school, essayRegex)"
+                 ng-bind="school.watch">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputgrade">Grade *</label> </br>
+          <select name="grade" class="form-control" id="inputgrade" ng-model="grade.watch"
+                  ng-style="styling(grade)" ng-click="dropdownVerify(grade)" ng-touch="dropdownVerify(grade)">
+            <option ng-repeat="grade in grades">{{grade}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- How did you hear about us input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <form>
+    <div class="col-md-6">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputreferred">How were you referred to EMS Academy? *</label> </br>
+          <select name=referred" class="form-control" id="inputreferred" ng-model="referred.watch"
+                  ng-style="styling(referred)" ng-click="dropdownVerify(referred)" ng-touch="dropdownVerify(referred)">
+            <option ng-repeat="referral in referrals">{{referral}}</option>
+          </select></br></br></br>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-default" ng-click="routeChange1(nextUrl)">Next Step</button>
+  </div>
+<!-- Container end -->
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>EMS Academy 2015</p>
+  </div>
+</footer>
+        

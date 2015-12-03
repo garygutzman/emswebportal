@@ -1,0 +1,89 @@
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+
+    <h1>{{welcome}}</h1>
+    <p class="lead">{{title}}</p>
+    <!-- Saint paul residents only note -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center">
+          <em>valid for saint paul residents only</em>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<div class="container">
+
+
+  <div class="row bs-wizard" style="border-bottom:0;">
+
+    <div class="col-xs-4 bs-wizard-step complete"><!-- completed -->
+      <div class="text-center bs-wizard-stepnum">Step 1</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="main.html" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center"> Tell us about yourself</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step complete"><!-- completed -->
+      <div class="text-center bs-wizard-stepnum">Step 2</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="RegisterStep2.html" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Tell us about your family</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step active"><!-- active -->
+      <div class="text-center bs-wizard-stepnum">Step 3</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Essay</div> </br></br>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <div class="text-center">
+        <i>Tell us a little more about yourself. This is your chance to stand out and shine!</br></i></br>
+      </div>
+    <form>
+      <textarea ckeditor="editorOptions" ng-model="essay.watch" ng-bind="essay.watch">{{essay.watch}}</textarea> </br> </br>
+    </form>
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-2">
+      <div class="text-left">
+        <a href="RegisterStep2.html"<button type="button" class="btn btn-default">Previous Step</button></a>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="text-right">
+        <button type="button" class="btn btn-default" ng-click="openSubmit()">Submit</button>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>EMS Academy 2015</p>
+  </div>
+</footer>

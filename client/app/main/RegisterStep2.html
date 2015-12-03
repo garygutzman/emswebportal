@@ -1,0 +1,171 @@
+
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+
+    <h1>{{welcome}}</h1>
+    <p class="lead">{{title}}</p>
+    <!-- Saint paul residents only note -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center">
+          <em>valid for saint paul residents only</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+
+  <div class="row bs-wizard" style="border-bottom:0;">
+
+    <div class="col-xs-4 bs-wizard-step complete"><!-- completed -->
+      <div class="text-center bs-wizard-stepnum">Step 1</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="main.html" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center"> Tell us about yourself</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step active"><!-- active -->
+      <div class="text-center bs-wizard-stepnum">Step 2</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="RegisterStep2.html" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Tell us about your family</div>
+    </div>
+
+    <div class="col-xs-4 bs-wizard-step disabled"><!-- disabled -->
+      <div class="text-center bs-wizard-stepnum">Step 3</div>
+      <div class="progress"><div class="progress-bar"></div></div>
+      <a href="#" class="bs-wizard-dot"></a>
+      <div class="bs-wizard-info text-center">Essay</div> </br></br>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container">
+
+  <!-- Required fields note -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <em>* indicates required fields</br></br></em>
+      </div>
+    </div>
+  </div>
+
+  <!-- income member, family size input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+    <form>
+
+        <div class="form-group">
+            <div class="text-center">
+              <label for="inputincome">Family Income *</label> </br>
+            </div>
+          <div class="input-group">
+            <div class="text-center">
+              <input type="text" class="form-control" id="inputincome"
+                ng-model="income.watch" ng-style="styling(income)" ng-keyup="verification(income, incomeRegex)"
+                ng-bind="income.watch" ui-money-mask="0">
+            </div> <span class="input-group-addon" id="dollar-addon">.00</span>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="inputhousehold">Family Size *</label>
+          </br><input type="text" class="form-control" placeholder="Number of household members" id="inputhousehold"
+                ng-model="household.watch" ng-style="styling(household)"
+                ng-keyup="verification(household, ageRegex)" maxlength="2" ng-bind="household.watch">
+        </div>
+      </div>
+    </div>
+
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Hispanic family, family race input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"><form>
+      <div class="text-center">
+        <div class="form-group">
+          <label>Is your family Hispanic? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="hispanicfam" value="Yes" ng-model="hispanicfam.watch" ng-click="dropdownVerify(hispanicfam)" ng-touch="dropdownVerify(hispanicfam)">
+          No&nbsp;&nbsp;<input type="radio" name="hispanicfam" value="No" ng-model="hispanicfam.watch" ng-click="dropdownVerify(hispanicfam)" ng-touch="dropdownVerify(hispanicfam)">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="text-center">
+        <div class="form-group">
+          <label for="famethnicity">Primary Family Ethnicity *</label>
+          </br><select name="famethnicity" class="form-control" id="famethnicity" ng-model="famethnicity.watch"
+          ng-style="styling(famethnicity)" ng-click="dropdownVerify(famethnicity)" ng-touch="dropdownVerify(famethnicity)">
+          <option ng-repeat="ethnicity in ethnicities">{{ethnicity}}</option>
+        </select>
+        </div>
+      </div>
+    </div>
+
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+
+  <!-- Foster care, etc and public assistance input -->
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"><form>
+      <div class="text-center">
+        <div class="form-group">
+          <label>Are you now or have ever been in foster care? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="fostercare" value="Yes" ng-model="fostercare.watch" ng-click="dropdownVerify(fostercare)" ng-touch="dropdownVerify(fostercare)">
+          No&nbsp;&nbsp;<input type="radio" name="fostercare" value="No" ng-model="fostercare.watch" ng-click="dropdownVerify(fostercare)" ng-touch="dropdownVerify(fostercare)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"><form>
+      <div class="text-center">
+        <div class="form-group">
+          <label>Are you or your family receiving public assistance? *</label> </br>
+          Yes&nbsp;&nbsp;<input type="radio" name="publicassist" value="Yes" ng-model="publicassist.watch" ng-click="dropdownVerify(publicassist)" ng-touch="dropdownVerify(publicassist)">
+          No&nbsp;&nbsp;<input type="radio" name="publicassist" value="No" ng-model="publicassist.watch" ng-click="dropdownVerify(publicassist)" ng-touch="dropdownVerify(publicassist)"></br></br></br>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-2">
+      <div class="text-left">
+      <a href="/main.html"><button type="button" class="btn btn-default" ng-click="btnclick()">Previous Step</button></a>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="text-right">
+      <button type="button" class="btn btn-default" ng-click="routeChange2(nextUrl2)">Next Step</button>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <p>EMS Academy 2015</p>
+  </div>
+</footer>
